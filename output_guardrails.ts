@@ -1,5 +1,9 @@
-import { Agent, run, InputGuardrailTripwireTriggered, type InputGuardrail } from "@openai/agents";
+import { Agent, run, OutputGuardrailTripwireTriggered, type OutputGuardrail } from "@openai/agents";
 import z from "zod";
+
+// The output by the main agent
+const MessageOutput = z.object({ response: z.string() });
+type MessageOutput = z.infer<typeof MessageOutput>;
 
 // Configuring Guardrail agent
 const guardRailAgent = new Agent({
@@ -11,12 +15,11 @@ const guardRailAgent = new Agent({
     }),
 });
 
-// Configuring Guardrail using the agent
-const mathGuardrail: InputGuardrail  = {
+// Configuring output Guardrail using the agent
+const mathGuardrail: OutputGuardrail<typeof MessageOutput>  = {
     name: 'Math Homework Guardrail',
-    runInParallel: false,
-    execute: async ({ input, context }) => {
-        const result = await run(guardRailAgent, input, { context });
+    execute: async ({ agentOutput, context }) => {
+        const result = await run(guardRailAgent, agentOutput.response, { context });
         return {
             outputInfo: result?.finalOutput,
             tripwireTriggered: result?.finalOutput?.isMathHomework ?? false,
@@ -28,19 +31,20 @@ const mathGuardrail: InputGuardrail  = {
 const agent = new Agent({
     name: 'Customer Support Agent',
     instructions: 'You are a customer support agent. You help customers with their questions.',
-    inputGuardrails: [mathGuardrail],
+    outputGuardrails: [mathGuardrail],
+    outputType: MessageOutput
 });
 
 async function main() {
     try {
         // This will return 'Math homework guardrail tripped'
-        // await run(agent, 'Hello can you help me solve for x:2x+3 = 12 ?');
+        await run(agent, 'Hello can you help me solve for x:2x+3 = 12 ?');
 
-        await run(agent, 'Hello, How can you help me ?');
+        // await run(agent, 'Hello, How can you help me ?');
         console.log('Guardrrail did not trip - this is unexpected');
 
     } catch (error) {
-        if (error instanceof InputGuardrailTripwireTriggered) {
+        if (error instanceof OutputGuardrailTripwireTriggered) {
             console.log('Math homework guardrail tripped');
         }
     }

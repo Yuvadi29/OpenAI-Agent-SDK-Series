@@ -29,6 +29,7 @@ const agent = new Agent({
 });
 async function main() {
     try {
+        // This will return 'Math homework guardrail tripped'
         // await run(agent, 'Hello can you help me solve for x:2x+3 = 12 ?');
         await run(agent, 'Hello, How can you help me ?');
         console.log('Guardrrail did not trip - this is unexpected');
@@ -40,4 +41,8 @@ async function main() {
     }
 }
 main().catch(console.error);
+// This is a typescript file, to run it. Follow the steps:
+// npm install -g typescript
+// tsc input_guardrails.ts
+// node input_guardrails.js
 //# sourceMappingURL=input_guardrails.js.map
