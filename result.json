@@ -1,0 +1,914 @@
+{
+  "$schemaVersion": "1.0",
+  "currentTurn": 1,
+  "currentAgent": {
+    "name": "Basic test agent"
+  },
+  "originalInput": "What is the weather and temperature in San Francisco and Oakland? Use available tools as needed.",
+  "modelResponses": [
+    {
+      "usage": {
+        "requests": 1,
+        "inputTokens": 28,
+        "outputTokens": 84,
+        "totalTokens": 112,
+        "inputTokensDetails": [
+          {
+            "cached_tokens": 0
+          }
+        ],
+        "outputTokensDetails": [
+          {
+            "reasoning_tokens": 0
+          }
+        ]
+      },
+      "output": [
+        {
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+            "type": "function_call"
+          },
+          "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+          "type": "function_call",
+          "callId": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+          "name": "ask_weather_agent",
+          "status": "completed",
+          "arguments": "{\"input\":\"current weather in San Francisco\"}"
+        },
+        {
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+            "type": "function_call"
+          },
+          "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+          "type": "function_call",
+          "callId": "call_13yZrwNdkJg8yZoDKMyNS14H",
+          "name": "get_temperature",
+          "status": "completed",
+          "arguments": "{\"city\":\"San Francisco\"}"
+        },
+        {
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+            "type": "function_call"
+          },
+          "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+          "type": "function_call",
+          "callId": "call_8ZqE6yxkc0UkEbSeScv7Fmcs",
+          "name": "ask_weather_agent",
+          "status": "completed",
+          "arguments": "{\"input\":\"current weather in Oakland\"}"
+        },
+        {
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+            "type": "function_call"
+          },
+          "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+          "type": "function_call",
+          "callId": "call_JT5ud33M1SEAx8rciMl3XOpB",
+          "name": "get_temperature",
+          "status": "completed",
+          "arguments": "{\"city\":\"Oakland\"}"
+        }
+      ],
+      "responseId": "resp_0e1db04a3e2508f500692b47ec05148190825b6188486aba20",
+      "providerData": {
+        "id": "resp_0e1db04a3e2508f500692b47ec05148190825b6188486aba20",
+        "object": "response",
+        "created_at": 1764444140,
+        "status": "completed",
+        "background": false,
+        "billing": {
+          "payer": "developer"
+        },
+        "error": null,
+        "incomplete_details": null,
+        "instructions": "You are a basic agent. For weather questions, use the weather agent tool with an appropriate input string and then answer.",
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+          {
+            "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+            "type": "function_call",
+            "status": "completed",
+            "arguments": "{\"input\":\"current weather in San Francisco\"}",
+            "call_id": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+            "name": "ask_weather_agent"
+          },
+          {
+            "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+            "type": "function_call",
+            "status": "completed",
+            "arguments": "{\"city\":\"San Francisco\"}",
+            "call_id": "call_13yZrwNdkJg8yZoDKMyNS14H",
+            "name": "get_temperature"
+          },
+          {
+            "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+            "type": "function_call",
+            "status": "completed",
+            "arguments": "{\"input\":\"current weather in Oakland\"}",
+            "call_id": "call_8ZqE6yxkc0UkEbSeScv7Fmcs",
+            "name": "ask_weather_agent"
+          },
+          {
+            "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+            "type": "function_call",
+            "status": "completed",
+            "arguments": "{\"city\":\"Oakland\"}",
+            "call_id": "call_JT5ud33M1SEAx8rciMl3XOpB",
+            "name": "get_temperature"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": null,
+        "reasoning": {
+          "effort": null,
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "tool_choice": "auto",
+        "tools": [
+          {
+            "type": "function",
+            "description": "Get the temperature for a given city",
+            "name": "get_temperature",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "city": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "city"
+              ],
+              "additionalProperties": false
+            },
+            "strict": true
+          },
+          {
+            "type": "function",
+            "description": "Ask the weather agent about a location. Pass a short input string.",
+            "name": "ask_weather_agent",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "input"
+              ],
+              "additionalProperties": false
+            },
+            "strict": true
+          }
+        ],
+        "top_logprobs": 0,
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 28,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 84,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 112
+        },
+        "user": null,
+        "metadata": {},
+        "output_text": ""
+      }
+    }
+  ],
+  "context": {
+    "usage": {
+      "requests": 3,
+      "inputTokens": 172,
+      "outputTokens": 110,
+      "totalTokens": 282,
+      "inputTokensDetails": [
+        {
+          "cached_tokens": 0
+        },
+        {
+          "cached_tokens": 0
+        },
+        {
+          "cached_tokens": 0
+        }
+      ],
+      "outputTokensDetails": [
+        {
+          "reasoning_tokens": 0
+        },
+        {
+          "reasoning_tokens": 0
+        },
+        {
+          "reasoning_tokens": 0
+        }
+      ],
+      "requestUsageEntries": [
+        {
+          "inputTokens": 28,
+          "outputTokens": 84,
+          "totalTokens": 112,
+          "inputTokensDetails": {
+            "cached_tokens": 0
+          },
+          "outputTokensDetails": {
+            "reasoning_tokens": 0
+          }
+        },
+        {
+          "inputTokens": 57,
+          "outputTokens": 16,
+          "totalTokens": 73,
+          "inputTokensDetails": {
+            "cached_tokens": 0
+          },
+          "outputTokensDetails": {
+            "reasoning_tokens": 0
+          }
+        },
+        {
+          "inputTokens": 87,
+          "outputTokens": 10,
+          "totalTokens": 97,
+          "inputTokensDetails": {
+            "cached_tokens": 0
+          },
+          "outputTokensDetails": {
+            "reasoning_tokens": 0
+          }
+        }
+      ]
+    },
+    "approvals": {},
+    "context": {}
+  },
+  "toolUseTracker": {
+    "Basic test agent": [
+      "ask_weather_agent",
+      "get_temperature",
+      "ask_weather_agent",
+      "get_temperature"
+    ]
+  },
+  "maxTurns": 10,
+  "currentAgentSpan": {
+    "object": "trace.span",
+    "id": "span_350ccb3878ac4aab82490778",
+    "trace_id": "trace_e59a5544856f40b1a8c74e03e27b4388",
+    "parent_id": null,
+    "started_at": "2025-11-29T19:22:19.782Z",
+    "ended_at": null,
+    "error": null,
+    "span_data": {
+      "type": "agent",
+      "name": "Basic test agent",
+      "handoffs": [],
+      "tools": [
+        "get_temperature",
+        "ask_weather_agent"
+      ],
+      "output_type": "text"
+    }
+  },
+  "noActiveAgentRun": false,
+  "inputGuardrailResults": [],
+  "outputGuardrailResults": [],
+  "currentStep": {
+    "type": "next_step_interruption",
+    "data": {
+      "interruptions": [
+        {
+          "type": "tool_approval_item",
+          "rawItem": {
+            "type": "function_call",
+            "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+            "callId": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+            "name": "ask_weather_agent",
+            "status": "completed",
+            "arguments": "{\"input\":\"current weather in San Francisco\"}",
+            "providerData": {
+              "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+              "type": "function_call"
+            }
+          },
+          "agent": {
+            "name": "Basic test agent"
+          },
+          "toolName": "ask_weather_agent"
+        },
+        {
+          "type": "tool_approval_item",
+          "rawItem": {
+            "type": "function_call",
+            "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+            "callId": "call_JT5ud33M1SEAx8rciMl3XOpB",
+            "name": "get_temperature",
+            "status": "completed",
+            "arguments": "{\"city\":\"Oakland\"}",
+            "providerData": {
+              "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+              "type": "function_call"
+            }
+          },
+          "agent": {
+            "name": "Basic test agent"
+          },
+          "toolName": "get_temperature"
+        }
+      ]
+    }
+  },
+  "lastModelResponse": {
+    "usage": {
+      "requests": 1,
+      "inputTokens": 28,
+      "outputTokens": 84,
+      "totalTokens": 112,
+      "inputTokensDetails": [
+        {
+          "cached_tokens": 0
+        }
+      ],
+      "outputTokensDetails": [
+        {
+          "reasoning_tokens": 0
+        }
+      ]
+    },
+    "output": [
+      {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+        "type": "function_call",
+        "callId": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+        "name": "ask_weather_agent",
+        "status": "completed",
+        "arguments": "{\"input\":\"current weather in San Francisco\"}"
+      },
+      {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+        "type": "function_call",
+        "callId": "call_13yZrwNdkJg8yZoDKMyNS14H",
+        "name": "get_temperature",
+        "status": "completed",
+        "arguments": "{\"city\":\"San Francisco\"}"
+      },
+      {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+        "type": "function_call",
+        "callId": "call_8ZqE6yxkc0UkEbSeScv7Fmcs",
+        "name": "ask_weather_agent",
+        "status": "completed",
+        "arguments": "{\"input\":\"current weather in Oakland\"}"
+      },
+      {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+        "type": "function_call",
+        "callId": "call_JT5ud33M1SEAx8rciMl3XOpB",
+        "name": "get_temperature",
+        "status": "completed",
+        "arguments": "{\"city\":\"Oakland\"}"
+      }
+    ],
+    "responseId": "resp_0e1db04a3e2508f500692b47ec05148190825b6188486aba20",
+    "providerData": {
+      "id": "resp_0e1db04a3e2508f500692b47ec05148190825b6188486aba20",
+      "object": "response",
+      "created_at": 1764444140,
+      "status": "completed",
+      "background": false,
+      "billing": {
+        "payer": "developer"
+      },
+      "error": null,
+      "incomplete_details": null,
+      "instructions": "You are a basic agent. For weather questions, use the weather agent tool with an appropriate input string and then answer.",
+      "max_output_tokens": null,
+      "max_tool_calls": null,
+      "model": "gpt-4.1-2025-04-14",
+      "output": [
+        {
+          "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"input\":\"current weather in San Francisco\"}",
+          "call_id": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+          "name": "ask_weather_agent"
+        },
+        {
+          "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"city\":\"San Francisco\"}",
+          "call_id": "call_13yZrwNdkJg8yZoDKMyNS14H",
+          "name": "get_temperature"
+        },
+        {
+          "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"input\":\"current weather in Oakland\"}",
+          "call_id": "call_8ZqE6yxkc0UkEbSeScv7Fmcs",
+          "name": "ask_weather_agent"
+        },
+        {
+          "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"city\":\"Oakland\"}",
+          "call_id": "call_JT5ud33M1SEAx8rciMl3XOpB",
+          "name": "get_temperature"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "previous_response_id": null,
+      "prompt_cache_key": null,
+      "prompt_cache_retention": null,
+      "reasoning": {
+        "effort": null,
+        "summary": null
+      },
+      "safety_identifier": null,
+      "service_tier": "default",
+      "store": true,
+      "temperature": 1,
+      "text": {
+        "format": {
+          "type": "text"
+        },
+        "verbosity": "medium"
+      },
+      "tool_choice": "auto",
+      "tools": [
+        {
+          "type": "function",
+          "description": "Get the temperature for a given city",
+          "name": "get_temperature",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "city"
+            ],
+            "additionalProperties": false
+          },
+          "strict": true
+        },
+        {
+          "type": "function",
+          "description": "Ask the weather agent about a location. Pass a short input string.",
+          "name": "ask_weather_agent",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "input": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "input"
+            ],
+            "additionalProperties": false
+          },
+          "strict": true
+        }
+      ],
+      "top_logprobs": 0,
+      "top_p": 1,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 28,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 84,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 112
+      },
+      "user": null,
+      "metadata": {},
+      "output_text": ""
+    }
+  },
+  "generatedItems": [
+    {
+      "type": "tool_call_item",
+      "rawItem": {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+        "type": "function_call",
+        "callId": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+        "name": "ask_weather_agent",
+        "status": "completed",
+        "arguments": "{\"input\":\"current weather in San Francisco\"}"
+      },
+      "agent": {
+        "name": "Basic test agent"
+      }
+    },
+    {
+      "type": "tool_call_item",
+      "rawItem": {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+        "type": "function_call",
+        "callId": "call_13yZrwNdkJg8yZoDKMyNS14H",
+        "name": "get_temperature",
+        "status": "completed",
+        "arguments": "{\"city\":\"San Francisco\"}"
+      },
+      "agent": {
+        "name": "Basic test agent"
+      }
+    },
+    {
+      "type": "tool_call_item",
+      "rawItem": {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+        "type": "function_call",
+        "callId": "call_8ZqE6yxkc0UkEbSeScv7Fmcs",
+        "name": "ask_weather_agent",
+        "status": "completed",
+        "arguments": "{\"input\":\"current weather in Oakland\"}"
+      },
+      "agent": {
+        "name": "Basic test agent"
+      }
+    },
+    {
+      "type": "tool_call_item",
+      "rawItem": {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+        "type": "function_call",
+        "callId": "call_JT5ud33M1SEAx8rciMl3XOpB",
+        "name": "get_temperature",
+        "status": "completed",
+        "arguments": "{\"city\":\"Oakland\"}"
+      },
+      "agent": {
+        "name": "Basic test agent"
+      }
+    },
+    {
+      "type": "tool_approval_item",
+      "rawItem": {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+        "type": "function_call",
+        "callId": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+        "name": "ask_weather_agent",
+        "status": "completed",
+        "arguments": "{\"input\":\"current weather in San Francisco\"}"
+      },
+      "agent": {
+        "name": "Basic test agent"
+      },
+      "toolName": "ask_weather_agent"
+    },
+    {
+      "type": "tool_call_output_item",
+      "rawItem": {
+        "type": "function_call_result",
+        "name": "get_temperature",
+        "callId": "call_13yZrwNdkJg8yZoDKMyNS14H",
+        "status": "completed",
+        "output": {
+          "type": "text",
+          "text": "The temperature in San Francisco is 20° Celsius"
+        }
+      },
+      "agent": {
+        "name": "Basic test agent"
+      },
+      "output": "The temperature in San Francisco is 20° Celsius"
+    },
+    {
+      "type": "tool_call_output_item",
+      "rawItem": {
+        "type": "function_call_result",
+        "name": "ask_weather_agent",
+        "callId": "call_8ZqE6yxkc0UkEbSeScv7Fmcs",
+        "status": "completed",
+        "output": {
+          "type": "text",
+          "text": "The current weather in Oakland is sunny."
+        }
+      },
+      "agent": {
+        "name": "Basic test agent"
+      },
+      "output": "The current weather in Oakland is sunny."
+    },
+    {
+      "type": "tool_approval_item",
+      "rawItem": {
+        "providerData": {
+          "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+          "type": "function_call"
+        },
+        "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+        "type": "function_call",
+        "callId": "call_JT5ud33M1SEAx8rciMl3XOpB",
+        "name": "get_temperature",
+        "status": "completed",
+        "arguments": "{\"city\":\"Oakland\"}"
+      },
+      "agent": {
+        "name": "Basic test agent"
+      },
+      "toolName": "get_temperature"
+    }
+  ],
+  "lastProcessedResponse": {
+    "newItems": [
+      {
+        "type": "tool_call_item",
+        "rawItem": {
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+            "type": "function_call"
+          },
+          "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+          "type": "function_call",
+          "callId": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+          "name": "ask_weather_agent",
+          "status": "completed",
+          "arguments": "{\"input\":\"current weather in San Francisco\"}"
+        },
+        "agent": {
+          "name": "Basic test agent"
+        }
+      },
+      {
+        "type": "tool_call_item",
+        "rawItem": {
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+            "type": "function_call"
+          },
+          "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+          "type": "function_call",
+          "callId": "call_13yZrwNdkJg8yZoDKMyNS14H",
+          "name": "get_temperature",
+          "status": "completed",
+          "arguments": "{\"city\":\"San Francisco\"}"
+        },
+        "agent": {
+          "name": "Basic test agent"
+        }
+      },
+      {
+        "type": "tool_call_item",
+        "rawItem": {
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+            "type": "function_call"
+          },
+          "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+          "type": "function_call",
+          "callId": "call_8ZqE6yxkc0UkEbSeScv7Fmcs",
+          "name": "ask_weather_agent",
+          "status": "completed",
+          "arguments": "{\"input\":\"current weather in Oakland\"}"
+        },
+        "agent": {
+          "name": "Basic test agent"
+        }
+      },
+      {
+        "type": "tool_call_item",
+        "rawItem": {
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+            "type": "function_call"
+          },
+          "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+          "type": "function_call",
+          "callId": "call_JT5ud33M1SEAx8rciMl3XOpB",
+          "name": "get_temperature",
+          "status": "completed",
+          "arguments": "{\"city\":\"Oakland\"}"
+        },
+        "agent": {
+          "name": "Basic test agent"
+        }
+      }
+    ],
+    "toolsUsed": [
+      "ask_weather_agent",
+      "get_temperature",
+      "ask_weather_agent",
+      "get_temperature"
+    ],
+    "handoffs": [],
+    "functions": [
+      {
+        "toolCall": {
+          "type": "function_call",
+          "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+          "callId": "call_tZdTjAtTJt85NJ5o4r1K0nYE",
+          "name": "ask_weather_agent",
+          "status": "completed",
+          "arguments": "{\"input\":\"current weather in San Francisco\"}",
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ec837c81909fd86907d96394a1",
+            "type": "function_call"
+          }
+        },
+        "tool": {
+          "type": "function",
+          "name": "ask_weather_agent",
+          "description": "Ask the weather agent about a location. Pass a short input string.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "input": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "input"
+            ],
+            "additionalProperties": false,
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          },
+          "strict": true
+        }
+      },
+      {
+        "toolCall": {
+          "type": "function_call",
+          "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+          "callId": "call_13yZrwNdkJg8yZoDKMyNS14H",
+          "name": "get_temperature",
+          "status": "completed",
+          "arguments": "{\"city\":\"San Francisco\"}",
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ec981c8190b8ee659aaf4b909e",
+            "type": "function_call"
+          }
+        },
+        "tool": {
+          "type": "function",
+          "name": "get_temperature",
+          "description": "Get the temperature for a given city",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "city"
+            ],
+            "additionalProperties": false,
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          },
+          "strict": true
+        }
+      },
+      {
+        "toolCall": {
+          "type": "function_call",
+          "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+          "callId": "call_8ZqE6yxkc0UkEbSeScv7Fmcs",
+          "name": "ask_weather_agent",
+          "status": "completed",
+          "arguments": "{\"input\":\"current weather in Oakland\"}",
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ecb1b881908a7955260d319eef",
+            "type": "function_call"
+          }
+        },
+        "tool": {
+          "type": "function",
+          "name": "ask_weather_agent",
+          "description": "Ask the weather agent about a location. Pass a short input string.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "input": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "input"
+            ],
+            "additionalProperties": false,
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          },
+          "strict": true
+        }
+      },
+      {
+        "toolCall": {
+          "type": "function_call",
+          "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+          "callId": "call_JT5ud33M1SEAx8rciMl3XOpB",
+          "name": "get_temperature",
+          "status": "completed",
+          "arguments": "{\"city\":\"Oakland\"}",
+          "providerData": {
+            "id": "fc_0e1db04a3e2508f500692b47ecbe54819091e4859e637d278a",
+            "type": "function_call"
+          }
+        },
+        "tool": {
+          "type": "function",
+          "name": "get_temperature",
+          "description": "Get the temperature for a given city",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "city"
+            ],
+            "additionalProperties": false,
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          },
+          "strict": true
+        }
+      }
+    ],
+    "computerActions": [],
+    "shellActions": [],
+    "applyPatchActions": [],
+    "mcpApprovalRequests": []
+  },
+  "currentTurnPersistedItemCount": 0,
+  "trace": {
+    "object": "trace",
+    "id": "trace_e59a5544856f40b1a8c74e03e27b4388",
+    "workflow_name": "Agent workflow",
+    "group_id": null,
+    "metadata": {}
+  }
+}
