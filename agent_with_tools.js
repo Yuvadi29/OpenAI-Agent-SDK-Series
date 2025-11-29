@@ -2,9 +2,14 @@ import { Agent, run, tool } from '@openai/agents'
 import z from 'zod'
 import axios from 'axios'
 import { configDotenv } from 'dotenv'
-import nodemailer from 'nodemailer'
 
-configDotenv()
+configDotenv();
+
+const weatherOutputType = z.object({
+  city: z.string().describe("Name of the city"),
+  degree: z.number().describe("The degree ceclius of the temperature"),
+  condition: z.string().optional().describe("Condition of the weather")
+});
 
 // Creating a tool to get weather of a given city
 const getWeather = tool({
@@ -47,12 +52,14 @@ const agent = new Agent({
   name: 'Weather Bot',
   instructions: 'You are a helpful weather bot',
   model: 'gpt-4.1',
-  tools: [getWeather, sendMail]
+  // tools: [getWeather, sendMail]
+  tools: [getWeather],
+  outputType: weatherOutputType
 })
 
 async function runAgentWithTool () {
-  const result = await run(agent, 'What is the weather of Bengaluru');
-  console.log(result?.finalOutput)
+  const result = await run(agent, 'What is the weather of Mumbai');
+  console.log(result?.finalOutput);
 }
 
 runAgentWithTool()
