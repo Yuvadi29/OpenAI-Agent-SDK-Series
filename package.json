@@ -9,7 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@openai/agents": "^0.3.3",
     "axios": "^1.13.2",
@@ -17,5 +16,19 @@
     "nodemailer": "^7.0.11",
     "openmeteo": "^1.2.3",
     "zod": "^3.25.76"
-  }
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yuvadi29/OpenAI-Agent-SDK-Series.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yuvadi29/OpenAI-Agent-SDK-Series/issues"
+  },
+  "homepage": "https://github.com/Yuvadi29/OpenAI-Agent-SDK-Series#readme",
+  "description": ""
 }
